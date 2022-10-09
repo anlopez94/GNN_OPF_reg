@@ -163,7 +163,7 @@ def load_model(model_path):
 
 def set_experiment_identifier(base_dir='logs', case_name='case9', batch=100, epochs=100, optimizer='ADAM'):
     case_folder = 'case_name' + str(case_name)
-    # MULTI-AGENT
+
     batch = 'batch' + str(batch)
     epochs = 'epochs' + str(epochs)
     optimizer = 'optimizer' + str(optimizer)
@@ -184,26 +184,7 @@ def set_writer_and_checkpoint_dir(base_dir = 'logs', case_name='case9', batch=10
     writer = tf.summary.create_file_writer(writer_dir)
     return writer
 
-    # experiment_identifier = self.agent.set_experiment_identifier(self.only_eval)
-    #
-    # writer_dir = os.path.join(self.base_dir, experiment_identifier)
-    # if not os.path.exists(writer_dir):
-    #     os.makedirs(writer_dir)
-    # else:
-    #     for f in glob.glob(os.path.join(writer_dir, 'events.out.tfevents.*')):
-    #         os.remove(f)
-    #
-    # checkpoint_dir = os.path.join(self.checkpoint_base_dir, experiment_identifier)
-    # if self.save_checkpoints and (not os.path.exists(checkpoint_dir)):
-    #     os.makedirs(checkpoint_dir)
-    #
-    # tf.summary.create_file_writer(self.writer_dir)
-    #
-    # f = open(os.path.join(writer_dir, 'out.log'), 'w+')
-    # f.close()
-    # fh = logging.FileHandler(os.path.join(writer_dir, 'out.log'))
-    # fh.setLevel(logging.DEBUG)  # or any level you want
-    # tf.get_logger().addHandler(fh)
+
 
 
 def save_results(path, name, results):

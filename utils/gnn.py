@@ -59,8 +59,7 @@ class GNN(tf.keras.Model):
         self.final_layer_initializer = tf.keras.initializers.Orthogonal(gain=1)
         self.kernel_regularizer = None  # keras.regularizers.l2(0.01)
 
-        # self.postprocess = create_ffn(hidden_units, dropout_rate, name="postprocess")
-        # Create a compute logits layer.
+
         fnn_layers = self.create_ffn(self.hidden_units_readout, self.dropout_rate)
         #ultima capa de la readout
         fnn_layers.append(layers.Dropout(self.dropout_rate_readout))
@@ -121,8 +120,7 @@ class GNN(tf.keras.Model):
         )
 
         node_repesentations = tf.concat([nodes_features, weights_mean, weights_max, weights_min, weights_sum], axis=-1)
-        # node_repesentations = tf.concat([weights_mean, weights_max, weights_min, weights_sum], axis=-1)
-        # node_repesentations = tf.concat([nodes_features, node_repesentations], axis=-1)
+
         padding = [[0, 0], [0, self.node_state_size - node_repesentations.shape[1]]]
         node_repesentations = tf.pad(node_repesentations, padding)
 
