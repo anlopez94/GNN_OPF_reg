@@ -1,1 +1,1 @@
-# GNN_OPF_reg
+# gnn_opf
